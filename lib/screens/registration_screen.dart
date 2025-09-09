@@ -6,7 +6,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:special_one_student/services/authentication_service.dart';
 import 'package:special_one_student/config/localization.dart';
 import 'package:special_one_student/widgets/custom_button.dart';
-import 'package:special_one_student/widgets/custom_textfield.dart';
+import 'package:special_one_student/widgets/custom_text_field.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});

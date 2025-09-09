@@ -7,7 +7,7 @@ class DashboardService {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     final response = await http.get(
-      Uri.parse('http://10.0.2.2:3000/api/student'),
+      Uri.parse('http://10.0.2.2:5179/api/student'),
       headers: {'Authorization': 'Bearer $token'},
     );
     if (response.statusCode == 200) {
@@ -21,7 +21,7 @@ class DashboardService {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     final response = await http.get(
-      Uri.parse('http://10.0.2.2:3000/api/schedules'),
+      Uri.parse('http://10.0.2.2:5179/api/schedules'),
       headers: {'Authorization': 'Bearer $token'},
     );
     if (response.statusCode == 200) {
@@ -35,7 +35,7 @@ class DashboardService {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('token');
     final response = await http.get(
-      Uri.parse('http://10.0.2.2:3000/api/announcements'),
+      Uri.parse('http://10.0.2.2:5179/api/announcements'),
       headers: {'Authorization': 'Bearer $token'},
     );
     if (response.statusCode == 200) {

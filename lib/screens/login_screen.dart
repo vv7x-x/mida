@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/services/authentication_service.dart';
-import 'package:mobile_app/utils/app_strings.dart';
-import 'package:mobile_app/utils/localization.dart';
-import 'package:mobile_app/widgets/custom_button.dart';
-import 'package:mobile_app/widgets/custom_textfield.dart';
+import 'package:special_one_student/services/authentication_service.dart';
+import 'package:special_one_student/config/localization.dart';
+import 'package:special_one_student/widgets/custom_button.dart';
+import 'package:special_one_student/widgets/custom_text_field.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -22,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
     final AppLocalizations l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(l.translate(AppStrings.login)!),
+        title: Text(l.login),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -31,12 +30,12 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             CustomTextField(
               controller: _emailController,
-              labelText: l.translate(AppStrings.email)!,
+              labelText: l.username,
             ),
             const SizedBox(height: 16.0),
             CustomTextField(
               controller: _passwordController,
-              labelText: l.translate(AppStrings.password)!,
+              labelText: l.password,
               obscureText: true,
             ),
             const SizedBox(height: 16.0),
@@ -51,18 +50,18 @@ class _LoginScreenState extends State<LoginScreen> {
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text(l.translate(AppStrings.loginFailed)!),
+                      content: Text(l.loginFailed),
                     ),
                   );
                 }
               },
-              text: l.translate(AppStrings.login)!,
+              text: l.login,
             ),
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/registration');
               },
-              child: Text(l.translate(AppStrings.register)!),
+              child: Text(l.register),
             ),
           ],
         ),

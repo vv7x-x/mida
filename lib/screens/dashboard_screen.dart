@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:mobile_app/providers/theme_provider.dart';
-import 'package:mobile_app/services/dashboard_service.dart';
-import 'package:mobile_app/localization/localization.dart';
-import 'package:mobile_app/utils/app_strings.dart';
+import 'package:special_one_student/providers/theme_provider.dart';
+import 'package:special_one_student/services/dashboard_service.dart';
+import 'package:special_one_student/config/localization.dart';
 
 class DashboardScreen extends StatefulWidget {
   const DashboardScreen({super.key});
@@ -54,10 +53,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context);
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.get(AppStrings.dashboard)),
+        title: Text(l.dashboard),
         actions: [
           IconButton(
             onPressed: () {
@@ -103,8 +102,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                               const SizedBox(height: 4.0),
-                              Text(
-                                  '${appLocalizations.get(AppStrings.username)}: ${_student?['username'] ?? ''} — ${appLocalizations.get(AppStrings.center)}: ${_student?['center'] ?? ''}'),
+                              Text(' ${l.username}: ${_student?['username'] ?? ''} — ${l.learningCenter}: ${_student?['center'] ?? ''}'),
                             ],
                           ),
                         ),
@@ -116,7 +114,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(appLocalizations.get(AppStrings.qrCode)),
+                              Text(l.qrCode),
                               const SizedBox(height: 8.0),
                               Center(
                                 child: InkWell(
@@ -142,10 +140,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(appLocalizations.get(AppStrings.schedules)),
+                              Text(l.schedule),
                               const SizedBox(height: 8.0),
                               if (_schedules == null || _schedules!.isEmpty)
-                                Text(appLocalizations.get(AppStrings.noSchedulesAvailable)),
+                                Text(l.noData),
                               ...(_schedules ?? []).map(
                                 (s) => ListTile(
                                   title: Text(
@@ -164,10 +162,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(appLocalizations.get(AppStrings.announcements)),
+                              Text(l.announcements),
                               const SizedBox(height: 8.0),
                               if (_announcements == null || _announcements!.isEmpty)
-                                Text(appLocalizations.get(AppStrings.noAnnouncementsAvailable)),
+                                Text(l.noData),
                               ...(_announcements ?? []).map(
                                 (a) => ListTile(
                                   title: Text(a['text'] ?? ''),
@@ -189,9 +187,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(appLocalizations.get(AppStrings.teacherNews)),
+                                Text(l.teacherNews),
                                 const SizedBox(height: 8.0),
-                                Text(appLocalizations.get(AppStrings.viewAllNews)),
+                                const Text('عرض كل الأخبار'),
                               ],
                             ),
                           ),

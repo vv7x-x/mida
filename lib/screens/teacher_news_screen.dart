@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/services/teacher_news_service.dart';
-import 'package:mobile_app/localization/localization.dart';
-import 'package:mobile_app/utils/app_strings.dart';
+import 'package:special_one_student/services/teacher_news_service.dart';
+import 'package:special_one_student/config/localization.dart';
 
 class TeacherNewsScreen extends StatefulWidget {
   const TeacherNewsScreen({super.key});
@@ -45,10 +44,10 @@ class _TeacherNewsScreenState extends State<TeacherNewsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context);
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.get(AppStrings.teacherNews)),
+        title: Text(l.teacherNews),
       ),
       body: RefreshIndicator(
         onRefresh: _fetchNews,
@@ -57,7 +56,7 @@ class _TeacherNewsScreenState extends State<TeacherNewsScreen> {
             : _error != null
                 ? Center(child: Text(_error!))
                 : _news == null || _news!.isEmpty
-                    ? Center(child: Text(appLocalizations.get(AppStrings.noNewsAvailable)))
+                    ? Center(child: Text(l.noData))
                     : ListView.builder(
                         itemCount: _news!.length,
                         itemBuilder: (context, index) {

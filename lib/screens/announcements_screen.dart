@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_app/services/dashboard_service.dart';
-import 'package:mobile_app/localization/localization.dart';
-import 'package:mobile_app/utils/app_strings.dart';
+import 'package:special_one_student/services/dashboard_service.dart';
+import 'package:special_one_student/config/localization.dart';
 
 class AnnouncementsScreen extends StatefulWidget {
   const AnnouncementsScreen({super.key});
@@ -45,10 +44,10 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context);
+    final l = AppLocalizations.of(context)!;
     return Scaffold(
       appBar: AppBar(
-        title: Text(appLocalizations.get(AppStrings.announcements)),
+        title: Text(l.announcements),
       ),
       body: RefreshIndicator(
         onRefresh: _fetchAnnouncements,
@@ -57,7 +56,7 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
             : _error != null
                 ? Center(child: Text(_error!))
                 : _announcements == null || _announcements!.isEmpty
-                    ? Center(child: Text(appLocalizations.get(AppStrings.noAnnouncementsAvailable)))
+                    ? Center(child: Text(l.noData))
                     : ListView.builder(
                         itemCount: _announcements!.length,
                         itemBuilder: (context, index) {

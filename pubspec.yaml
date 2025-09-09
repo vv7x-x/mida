@@ -37,6 +37,12 @@ dependencies:
   
   # Supabase
   supabase_flutter: ^2.6.0
+  # Networking & local database & notifications
+  http: ^1.2.1
+  sqflite: ^2.3.3
+  path: ^1.9.0
+  flutter_local_notifications: ^17.2.3
+  provider: ^6.0.5
 
 dev_dependencies:
   flutter_test:
@@ -48,9 +54,3 @@ flutter:
   assets:
     - lib/lang/
     - assets/images/
-  fonts:
-    - family: Cairo
-      fonts:
-        - asset: assets/fonts/Cairo-Regular.ttf
-        - asset: assets/fonts/Cairo-Bold.ttf
-          weight: 700
