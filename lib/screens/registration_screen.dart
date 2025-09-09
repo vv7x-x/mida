@@ -1,12 +1,12 @@
 import 'dart:typed_data';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mobile_app/services/authentication_service.dart';
-import 'package:mobile_app/utils/app_strings.dart';
-import 'package:mobile_app/utils/localization.dart';
-import 'package:mobile_app/widgets/custom_button.dart';
-import 'package:mobile_app/widgets/custom_textfield.dart';
+import 'package:special_one_student/services/authentication_service.dart';
+import 'package:special_one_student/config/localization.dart';
+import 'package:special_one_student/widgets/custom_button.dart';
+import 'package:special_one_student/widgets/custom_textfield.dart';
 
 class RegistrationScreen extends StatefulWidget {
   const RegistrationScreen({super.key});
@@ -40,7 +40,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(l.translate(AppStrings.register)!),
+        title: Text(l.register),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -50,47 +50,47 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             children: [
               CustomTextField(
                 controller: _fullNameController,
-                labelText: l.translate(AppStrings.fullName)!,
+                labelText: l.fullName,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _usernameController,
-                labelText: l.translate(AppStrings.username)!,
+                labelText: l.username,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _studentPhoneController,
-                labelText: l.translate(AppStrings.studentPhone)!,
+                labelText: l.studentPhone,
                 keyboardType: TextInputType.phone,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _parentPhoneController,
-                labelText: l.translate(AppStrings.parentPhone)!,
+                labelText: l.parentPhone,
                 keyboardType: TextInputType.phone,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _stageController,
-                labelText: l.translate(AppStrings.stage)!,
+                labelText: l.educationStage,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _ageController,
-                labelText: l.translate(AppStrings.age)!,
+                labelText: l.age,
                 keyboardType: TextInputType.number,
               ),
               const SizedBox(height: 16.0),
               CustomTextField(
                 controller: _centerController,
-                labelText: l.translate(AppStrings.center)!,
+                labelText: l.learningCenter,
               ),
               const SizedBox(height: 16.0),
               if (_imageFile != null)
-                Image.memory(await _imageFile!.readAsBytes(), height: 150),
+                Image.file(File(_imageFile!.path), height: 150),
               CustomButton(
                 onPressed: _pickImage,
-                text: l.translate(AppStrings.uploadIdImage)!,
+                text: l.uploadImage,
               ),
               const SizedBox(height: 16.0),
               CustomButton(
@@ -98,7 +98,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   if (_imageFile == null) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text(l.translate(AppStrings.pleaseUploadId)!),
+                        content: Text(l.required),
                       ),
                     );
                     return;
@@ -123,12 +123,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text(l.translate(AppStrings.registrationFailed)!),
+                        content: Text(l.registrationFailed),
                       ),
                     );
                   }
                 },
-                text: l.translate(AppStrings.register)!,
+                text: l.register,
               ),
             ],
           ),
