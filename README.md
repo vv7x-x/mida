@@ -1,42 +1,16 @@
-mindmap
-  root((Special One System))
-    Website
-      "صفحات الطلاب"
-      "أصول التصميم"
-    "Admin Panel"
-      "بروفايل الطالب"
-        "بحث بالكود/QR"
-        "عرض البيانات"
-        "سجل الحضور"
-        "النتائج"
-        "نسخ الكود/QR"
-        "ماسح بالكاميرا"
-      "إدارة"
-        "الطلبات المعلقة"
-        "الدروس والجداول"
-        "الإعلانات"
-    Backend
-      "مصادقة الأدمن"
-      "Supabase + JSON Fallback"
-      "API Routes"
-    Database
-      "Students"
-      "Results"
-      "Attendance"
-      "Centers"
-      "Lessons"
-      "Admins"
-      "Announcements"
-    Scanner
-      "PWA"
-      "IndexedDB Queue"
-      "jsQR + BarcodeDetector"
-    WhatsApp Bot
-      "Express Server"
-      "QR Login + Session"
-      "/send-report"
-      "Logging + Queue"
-    Student App
-      "QR + Code"
-      "نتائج/إعلانات Realtime"
-      "Push Notifications"
+# special_one_student
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
